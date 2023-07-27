@@ -1,7 +1,7 @@
-// Funktion för att hämta nyhetsdata baserat på kategori
-async function fetchDataByCategory(category) {
+// Funktion för att hämta nyhetsdata baserat på sökfråga
+async function fetchData(query) {
   try {
-    const response = await fetch(`https://grandiose-strong-nephew.glitch.me/news?category=${category}`);
+    const response = await fetch(`https://grandiose-strong-nephew.glitch.me/news?query=${query}`);
     const data = await response.json();
     return data;
   } catch (error) {
@@ -43,9 +43,9 @@ function renderMain(arr) {
   }
 }
 
-// Funktion för att hantera klick på kategorilänkar
+// Funktion för att hantera klick på kategorilänkar och sökning
 function handleCategoryClick(category) {
-  fetchDataByCategory(category)
+  fetchData(category)
     .then((data) => {
       if (data && Array.isArray(data)) {
         renderMain(data);
@@ -76,7 +76,7 @@ document.querySelectorAll(".mobile nav li").forEach((item) => {
 
 // Initialisera sidan med alla nyheter
 document.addEventListener("DOMContentLoaded", () => {
-  fetchDataByCategory("all")
+  fetchData("all")
     .then((data) => {
       if (data && Array.isArray(data)) {
         renderMain(data);
