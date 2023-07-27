@@ -5,6 +5,9 @@ async function fetchData(query) {
   try {
     const res = await fetch(`${url}${query}&apiKey=${API_KEY}`);
     const data = await res.json();
+
+    console.log("API response data:", data); // Add this line to log the response data
+
     return data;
   } catch (error) {
     console.error("Error fetching data:", error);
