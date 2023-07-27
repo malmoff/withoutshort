@@ -1,14 +1,32 @@
-const API_KEY = "499d03534f224e8890dcd1f95376001c"
-const url = "https://newsapi.org/v2/everything?q="
+const API_KEY = "499d03534f224e8890dcd1f95376001c";
+const url = "https://newsapi.org/v2/everything?q=";
 
-
-
-async function fetchData(query){
-    const res = await fetch(`${url}${query}&apiKey=${API_KEY}`)
-    const data = await res.json()
-    return data
+async function fetchData(query) {
+  try {
+    const res = await fetch(`${url}${query}&apiKey=${API_KEY}`);
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    return null;
+  }
 }
-fetchData("all").then(data => renderMain(data.articles))
+
+async function initializePage() {
+  try {
+    const data = await fetchData("all");
+    if (data && data.articles && Array.isArray(data.articles)) {
+      renderMain(data.articles);
+    } else {
+      console.error("Invalid data format. Expected an array.");
+    }
+  } catch (error) {
+    console.error("Error initializing page:", error);
+  }
+}
+
+// Call the initializePage function to fetch data and render the content.
+initializePage();
 
 //menu btn
 let mobilemenu = document.querySelector(".mobile")
