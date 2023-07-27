@@ -70,10 +70,8 @@ searchFormMobile.addEventListener("submit", (e) => {
   Search(query);
 });
 
-// Toggle rullgardin för mobilenheter
-const menuBtn = document.querySelector(".menuBtn");
-const mobileMenu = document.querySelector(".mobile");
-
-menuBtn.addEventListener("click", () => {
+// Funktion för att visa/dölja rullgardinen för mobilenheter
+function toggleMobileMenu() {
+  const mobileMenu = document.querySelector(".mobile");
   mobileMenu.classList.toggle("hidden");
-});
+}
