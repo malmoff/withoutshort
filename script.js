@@ -1,8 +1,8 @@
-// Hämta nyhetsinnehåll från din Glitch-app
+// Hämta nyhetsinnehåll från Glitch-app
 fetch("https://grandiose-strong-nephew.glitch.me/news")
   .then((response) => response.json())
   .then((data) => {
-    // Använd nyhetsdatan för att visa innehållet på din sida
+    // Använd nyhetsdatan för att visa innehållet på sidan
     renderMain(data);
   })
   .catch((error) => {
