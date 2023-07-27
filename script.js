@@ -45,7 +45,36 @@ function Search(query) {
     });
 }
 
-// Kategorilänkar
+// Funktion för att visa/dölja rullgardinen på mobila enheter
+function toggleMobileMenu() {
+  const mobileMenu = document.querySelector(".mobile");
+  mobileMenu.classList.toggle("hidden");
+}
+
+// Klickhändelse för att visa/dölja rullgardinen på mobila enheter
+const menuBtn = document.querySelector(".menuBtn");
+menuBtn.addEventListener("click", toggleMobileMenu);
+
+// Kategorilänkar för mobila enheter
+const mobileCategories = document.querySelectorAll(".mobile nav li");
+mobileCategories.forEach((category) => {
+  category.addEventListener("click", () => {
+    toggleMobileMenu(); // Dölj rullgardinen efter att en kategori har valts
+    const query = category.textContent.toLowerCase();
+    Search(query);
+  });
+});
+
+// Sökruta för mobila enheter
+const searchFormMobile = document.getElementById("searchFormMobile");
+searchFormMobile.addEventListener("submit", (e) => {
+  e.preventDefault();
+  toggleMobileMenu(); // Dölj rullgardinen efter att sökningen har skickats
+  const query = document.getElementById("searchInputMobile").value;
+  Search(query);
+});
+
+// Kategorilänkar för desktop
 const categories = document.querySelectorAll("nav.desktop li");
 categories.forEach((category) => {
   category.addEventListener("click", () => {
@@ -54,24 +83,10 @@ categories.forEach((category) => {
   });
 });
 
-// Sökruta
+// Sökruta för desktop
 const searchForm = document.getElementById("searchForm");
 searchForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const query = document.getElementById("searchInput").value;
   Search(query);
 });
-
-// Sökruta för mobil
-const searchFormMobile = document.getElementById("searchFormMobile");
-searchFormMobile.addEventListener("submit", (e) => {
-  e.preventDefault();
-  const query = document.getElementById("searchInputMobile").value;
-  Search(query);
-});
-
-// Funktion för att visa/dölja rullgardinen för mobilenheter
-function toggleMobileMenu() {
-  const mobileMenu = document.querySelector(".mobile");
-  mobileMenu.classList.toggle("hidden");
-}
