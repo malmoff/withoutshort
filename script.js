@@ -44,3 +44,28 @@ function Search(query) {
       console.error("Error fetching news data:", error);
     });
 }
+
+// Kategorilänkar
+const categories = document.querySelectorAll("nav.desktop li");
+categories.forEach((category) => {
+  category.addEventListener("click", () => {
+    const query = category.textContent.toLowerCase();
+    Search(query);
+  });
+});
+
+// Sökruta
+const searchForm = document.getElementById("searchForm");
+searchForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const query = document.getElementById("searchInput").value;
+  Search(query);
+});
+
+// Sökruta för mobil
+const searchFormMobile = document.getElementById("searchFormMobile");
+searchFormMobile.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const query = document.getElementById("searchInputMobile").value;
+  Search(query);
+});
