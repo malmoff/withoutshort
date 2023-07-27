@@ -37,15 +37,18 @@ function renderMain(arr) {
     }
   });
 
-  document.querySelector("main").innerHTML = mainHTML;
+  const mainContainer = document.querySelector("main");
+  if (mainContainer) {
+    mainContainer.innerHTML = mainHTML;
+  }
 }
 
 // Funktion för att hantera klick på kategorilänkar
 function handleCategoryClick(category) {
   fetchDataByCategory(category)
     .then((data) => {
-      if (data && data.articles && Array.isArray(data.articles)) {
-        renderMain(data.articles);
+      if (data && Array.isArray(data)) {
+        renderMain(data);
       } else {
         console.error("Invalid data format. Expected an array.");
       }
@@ -75,8 +78,8 @@ document.querySelectorAll(".mobile nav li").forEach((item) => {
 document.addEventListener("DOMContentLoaded", () => {
   fetchDataByCategory("all")
     .then((data) => {
-      if (data && data.articles && Array.isArray(data.articles)) {
-        renderMain(data.articles);
+      if (data && Array.isArray(data)) {
+        renderMain(data);
       } else {
         console.error("Invalid data format. Expected an array.");
       }
@@ -117,18 +120,3 @@ searchBtnMobile.addEventListener("submit", async (e) => {
     document.querySelector(".mobile").classList.add("hidden");
   }
 });
-
-// Funktion för att hantera klick på kategorilänkar
-function handleCategoryClick(category) {
-  fetchDataByCategory(category)
-    .then((data) => {
-      if (data && data.articles && Array.isArray(data.articles)) {
-        renderMain(data.articles);
-      } else {
-        console.error("Invalid data format. Expected an array.");
-      }
-    })
-    .catch((error) => {
-      console.error("Error fetching news data:", error);
-    });
-}
