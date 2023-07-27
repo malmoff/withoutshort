@@ -1,5 +1,5 @@
 // Hämta nyhetsinnehåll från din Glitch-app
-fetch("https://DIN_GLITCH_APP_NAMN.glitch.me/news")
+fetch("https://glitch.com/edit/#!/grandiose-strong-nephew")
   .then((response) => response.json())
   .then((data) => {
     // Använd nyhetsdatan för att visa innehållet på din sida
