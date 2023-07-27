@@ -69,3 +69,11 @@ searchFormMobile.addEventListener("submit", (e) => {
   const query = document.getElementById("searchInputMobile").value;
   Search(query);
 });
+
+// Toggle rullgardin för mobilenheter
+const menuBtn = document.querySelector(".menuBtn");
+const mobileMenu = document.querySelector(".mobile");
+
+menuBtn.addEventListener("click", () => {
+  mobileMenu.classList.toggle("hidden");
+});
