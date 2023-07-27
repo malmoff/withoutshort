@@ -21,29 +21,33 @@ menuBtn.addEventListener("click",()=>{
 
 
 //render news 
-function renderMain(arr){
-    let mainHTML = ''
-    for(let i = 0 ; i < arr.length ;i++){
-        if(arr[i].urlToImage){
-        mainHTML += ` <div class="card">
-                        <a href=${arr[i].url}>
-                        <img src=${arr[i].urlToImage} lazy="loading" />
-                        <h4>${arr[i].title}</h4>
-                        <div class="publishbyDate">
-                            <p>${arr[i].source.name}</p>
-                            <span>•</span>
-                            <p>${new Date(arr[i].publishedAt).toLocaleDateString()}</p>
-                        </div>
-                        <div class="desc">
-                           ${arr[i].description}
-                        </div>
-                        </a>
-                     </div>
-        `
-        }
-    }
+function renderMain(arr) {
+  if (!Array.isArray(arr)) {
+    console.error("Invalid data format. Expected an array.");
+    return;
+  }
 
-    document.querySelector("main").innerHTML = mainHTML
+  let mainHTML = '';
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].urlToImage) {
+      mainHTML += `<div class="card">
+                    <a href=${arr[i].url}>
+                      <img src=${arr[i].urlToImage} lazy="loading" />
+                      <h4>${arr[i].title}</h4>
+                      <div class="publishbyDate">
+                        <p>${arr[i].source.name}</p>
+                        <span>•</span>
+                        <p>${new Date(arr[i].publishedAt).toLocaleDateString()}</p>
+                      </div>
+                      <div class="desc">
+                        ${arr[i].description}
+                      </div>
+                    </a>
+                  </div>`;
+    }
+  }
+
+  document.querySelector("main").innerHTML = mainHTML;
 }
 
 
