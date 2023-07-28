@@ -11,6 +11,9 @@ fetch("https://grandiose-strong-nephew.glitch.me/news")
 
 // render news 
 function renderMain(arr) {
+  // Sort the articles based on the published date in descending order (newest first)
+  arr.sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt));
+  
   let mainHTML = "";
   arr.forEach((article) => {
     if (article.urlToImage) {
