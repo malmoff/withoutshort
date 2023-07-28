@@ -127,31 +127,18 @@ form {
   display: none;
 }
 
-.menuBtn {
-  display: block; /* Show the menu button on mobile */
-}
-
-/* Add this to hide the desktop menu on mobile */
-nav.desktop {
-  display: none;
-}
-
-@media all and (min-width: 700px) {
+@media all and (max-width: 700px) {
   .menuBtn {
-    display: none; /* Hide the menu button on desktop */
-  }
-
-  .desktop {
-    display: flex; /* Show the desktop menu on desktop */
+    display: block;
   }
 
   .mobile {
-    height: 100%; /* Show the mobile menu on mobile */
+    height: 100%;
     padding: 20px;
   }
 
   .mobile.hidden {
-    height: 0; /* Hide the mobile menu when not in use */
+    height: 0;
   }
 }
 
