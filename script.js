@@ -11,6 +11,9 @@ fetch("https://grandiose-strong-nephew.glitch.me/news")
 
 // render news 
 function renderMain(arr) {
+  // Sort the articles based on the published date in descending order (newest first)
+  arr.sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt));
+  
   let mainHTML = "";
   arr.forEach((article) => {
     if (article.urlToImage) {
@@ -70,8 +73,10 @@ searchFormMobile.addEventListener("submit", (e) => {
   Search(query);
 });
 
-// Funktion för att visa och dölja den mobila menyn
-function toggleMobileMenu() {
-  const mobileMenu = document.querySelector(".mobileMenu");
+// Menyknapp för mobil
+const menuBtn = document.querySelector(".menuBtn");
+const mobileMenu = document.querySelector(".mobile");
+
+menuBtn.addEventListener("click", () => {
   mobileMenu.classList.toggle("hidden");
-}
+});
