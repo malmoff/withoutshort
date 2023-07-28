@@ -80,3 +80,4 @@ const mobileMenu = document.querySelector(".mobile");
 menuBtn.addEventListener("click", () => {
   mobileMenu.classList.toggle("hidden");
 });
+
