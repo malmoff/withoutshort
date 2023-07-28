@@ -1,17 +1,14 @@
-/* Global styles */
 * {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 }
 
 body {
   font-family: 'Poppins', sans-serif;
   font-size: 16px;
+  margin: 0;
   background: #f5f6f9;
 }
 
-/* Header */
 header {
   background-color: #ffffff;
   height: 65px;
@@ -88,8 +85,20 @@ form {
   display: none;
 }
 
-/* Mobile menu (Rullgardin) styles */
-.mobileMenu {
+@media all and (min-width: 700px) {
+  header {
+    padding: 5px 30px;
+  }
+  .desktop {
+    display: flex;
+  }
+  .menuBtn {
+    display: none;
+  }
+}
+
+/***mobile menu ****/
+.mobile {
   position: fixed;
   top: 70px;
   width: 100%;
@@ -104,34 +113,29 @@ form {
   transition: height 0.3s ease;
 }
 
-.mobileMenu nav,
-.mobileMenu nav ul {
+.mobile nav,
+.mobile nav ul {
   flex-direction: column;
 }
 
-.mobileMenu .inputSearch,
-.mobileMenu form {
+.mobile .inputSearch,
+.mobile form {
   height: 35px;
 }
 
-.mobileMenu.hidden {
-  height: 0; /* Hide the mobile menu when not in use */
+.hidden {
+  display: none;
 }
 
-/* Hide the desktop menu on mobile */
+.menuBtn {
+  display: block; /* Show the menu button on mobile */
+}
+
+/* Add this to hide the desktop menu on mobile */
 nav.desktop {
   display: none;
 }
 
-/* Style for the close button in mobile menu */
-.closeBtn {
-  display: flex;
-  justify-content: flex-end;
-  padding: 10px;
-  cursor: pointer;
-}
-
-/* Media query for screens wider than 700px (desktop) */
 @media all and (min-width: 700px) {
   .menuBtn {
     display: none; /* Hide the menu button on desktop */
@@ -148,16 +152,6 @@ nav.desktop {
 
   .mobile.hidden {
     height: 0; /* Hide the mobile menu when not in use */
-  }
-
-  /* Show the desktop menu on larger screens */
-  nav.desktop {
-    display: flex;
-  }
-
-  /* Hide the mobile menu on larger screens */
-  .mobileMenu {
-    display: none;
   }
 }
 
