@@ -1,14 +1,17 @@
+/* Global styles */
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
   font-family: 'Poppins', sans-serif;
   font-size: 16px;
-  margin: 0;
   background: #f5f6f9;
 }
 
+/* Header */
 header {
   background-color: #ffffff;
   height: 65px;
@@ -85,6 +88,7 @@ form {
   display: none;
 }
 
+/* Mobile menu (Rullgardin) styles */
 .mobileMenu {
   position: fixed;
   top: 70px;
@@ -100,25 +104,21 @@ form {
   transition: height 0.3s ease;
 }
 
-.mobile nav,
-.mobile nav ul {
+.mobileMenu nav,
+.mobileMenu nav ul {
   flex-direction: column;
 }
 
-.mobile .inputSearch,
-.mobile form {
+.mobileMenu .inputSearch,
+.mobileMenu form {
   height: 35px;
 }
 
-.hidden {
-  display: none;
+.mobileMenu.hidden {
+  height: 0; /* Hide the mobile menu when not in use */
 }
 
-.menuBtn {
-  display: block; /* Show the menu button on mobile */
-}
-
-/* Add this to hide the desktop menu on mobile */
+/* Hide the desktop menu on mobile */
 nav.desktop {
   display: none;
 }
@@ -148,6 +148,16 @@ nav.desktop {
 
   .mobile.hidden {
     height: 0; /* Hide the mobile menu when not in use */
+  }
+
+  /* Show the desktop menu on larger screens */
+  nav.desktop {
+    display: flex;
+  }
+
+  /* Hide the mobile menu on larger screens */
+  .mobileMenu {
+    display: none;
   }
 }
 
