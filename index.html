@@ -6,24 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>WithoutShort-Accessible News All in One Place</title>
 
-  <!--font awesome-->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
-  <!--Google font-->
+  <!-- Google Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap" rel="stylesheet" />
 
-  <!---css style-->
+  <!-- CSS Style -->
   <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
@@ -33,9 +24,10 @@
     <div class="inputSearch desktop">
       <form id="searchForm">
         <input type="text" placeholder="Type to search..." id="searchInput" />
-        <span> <i class="fa-solid fa-search"></i></span>
+        <span><i class="fas fa-search"></i></span>
       </form>
     </div>
+
     <nav class="desktop">
       <ul>
         <li onclick="Search('health')">Health</li>
@@ -46,32 +38,32 @@
       </ul>
     </nav>
 
-<div class="menuBtn" onclick="toggleMobileMenu()">
-  <i class="fa-solid fa-bars"></i>
-</div>
+    <!-- Menu button for mobile -->
+    <div class="menuBtn" onclick="toggleMobileMenu()">
+      <i class="fas fa-bars"></i>
+    </div>
 
-    <!-- Rullgardin för mobila enheter -->
+    <!-- Mobile Menu (Rullgardin) -->
     <div class="mobileMenu hidden">
       <nav>
         <ul>
-          <li onclick="Search('health')">Health</li>
-          <li onclick="Search('tech')">Tech</li>
-          <li onclick="Search('food')">Food</li>
-          <li onclick="Search('movies')">Movies</li>
-          <li onclick="Search('business')">Business</li>
+          <li onclick="toggleMobileMenu(); Search('health')">Health</li>
+          <li onclick="toggleMobileMenu(); Search('tech')">Tech</li>
+          <li onclick="toggleMobileMenu(); Search('food')">Food</li>
+          <li onclick="toggleMobileMenu(); Search('movies')">Movies</li>
+          <li onclick="toggleMobileMenu(); Search('business')">Business</li>
         </ul>
       </nav>
       <form id="searchFormMobile">
         <div class="inputSearch">
           <input type="text" placeholder="Type to search..." id="searchInputMobile" />
-          <span> <i class="fa-solid fa-search"></i></span>
+          <span><i class="fas fa-search"></i></span>
         </div>
       </form>
     </div>
   </header>
 
-  <!-- main  -->
-
+  <!-- Main Content -->
   <main></main>
 
   <script src="script.js"></script>
