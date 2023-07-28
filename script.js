@@ -81,3 +81,11 @@ menuBtn.addEventListener("click", () => {
   mobileMenu.classList.toggle("hidden");
 });
 
+// Stäng mobilmenyn när användaren klickar på en länk
+const mobileLinks = document.querySelectorAll(".mobile nav ul li");
+mobileLinks.forEach((link) => {
+  link.addEventListener("click", () => {
+    mobileMenu.classList.add("hidden");
+  });
+});
+
