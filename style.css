@@ -85,20 +85,7 @@ form {
   display: none;
 }
 
-@media all and (min-width: 700px) {
-  header {
-    padding: 5px 30px;
-  }
-  .desktop {
-    display: flex;
-  }
-  .menuBtn {
-    display: none;
-  }
-}
-
-/***mobile menu ****/
-.mobile {
+.mobileMenu {
   position: fixed;
   top: 70px;
   width: 100%;
@@ -136,6 +123,15 @@ nav.desktop {
   display: none;
 }
 
+/* Style for the close button in mobile menu */
+.closeBtn {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px;
+  cursor: pointer;
+}
+
+/* Media query for screens wider than 700px (desktop) */
 @media all and (min-width: 700px) {
   .menuBtn {
     display: none; /* Hide the menu button on desktop */
