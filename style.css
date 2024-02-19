@@ -101,28 +101,42 @@ form{
     top: 70px;
     left: 0;
     right: 0;
-    background-color:#f5f6f9 ;
-    max-width: 700px;
+    background-color: #f5f6f9;
+    max-width: 100%; /* Adjusted to take full width */
     height: calc(100vh - 70px);
     padding: 20px;
-    box-shadow: none;
+    box-shadow: 0px 3px 10px 0 rgba(80, 119, 242, 0.3); /* Added box-shadow */
     z-index: 2;
     margin: 0 auto;
-    overflow-y: auto; /* Lägger till scrollbar om innehållet är längre än skärmen */
+    overflow-y: auto;
 }
 
 .mobile nav,
 .mobile nav ul{
     flex-direction: column;
+    gap: 15px; /* Added gap between menu items */
 }
 
 .mobile .inputSearch,
 .mobile form{
-    height: 35px;
+    height: 40px; /* Adjusted height for consistency */
 }
 
-.hidden{
-    display: none;
+.mobile nav li {
+    cursor: pointer;
+    font-size: 18px; /* Increased font size for better readability */
+}
+
+.mobile nav li:hover {
+    color: #4361ee;
+}
+
+.mobile .inputSearch input {
+    font-size: 18px; /* Increased font size for better readability */
+}
+
+.mobile .inputSearch span {
+    width: 50px; /* Adjusted width for better visual balance */
 }
 
 @media all and (min-width:700px) {
