@@ -75,8 +75,9 @@ searchFormMobile.addEventListener("submit", (e) => {
 
 // Menyknapp för mobil
 const menuBtn = document.querySelector(".menuBtn");
-const mobileMenu = document.querySelector(".mobile");
+const mobileMenu = document.querySelector(".mobileMenu"); // Corrected class name
 
 menuBtn.addEventListener("click", () => {
   mobileMenu.classList.toggle("hidden");
 });
+
